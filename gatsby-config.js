@@ -4,7 +4,13 @@
 module.exports = {
   siteMetadata: {
     title: `s7-podcast`,
-    siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: [],
+  plugins: [`gatsby-plugin-sass`, {
+    resolve: "gatsby-plugin-react-svg",
+    options: {
+      rule: {
+        include: /assets/ // See below to configure properly
+      }
+    }
+  }],
 }
