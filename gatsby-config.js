@@ -2,8 +2,9 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: "/s7-promo",
   siteMetadata: {
-    title: `s7-podcast`,
+    title: `s7-promo`,
   },
   plugins: [`gatsby-plugin-sass`, {
     resolve: "gatsby-plugin-react-svg",
