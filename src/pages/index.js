@@ -22,20 +22,20 @@ const IndexPage = () => {
   const ellipseRef = React.useRef(null);
   const [isPlaying, setIsPlaying] = React.useState(false);
 
-  const [podcastIndex, setPodcastIndex] = React.useState(1);
+  const [podcastIndex, setPodcastIndex] = React.useState(0);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
   }
 
   const handlePrev = () => {
-    if (podcastIndex > 1) {
+    if (podcastIndex > 0) {
       setPodcastIndex(podcastIndex - 1);
     }
   }
 
   const handleNext = () => {
-    if (podcastIndex < PODCASTS.length) {
+    if (podcastIndex < PODCASTS.length - 1) {
       setPodcastIndex(podcastIndex + 1);
     }
   }
@@ -107,8 +107,14 @@ const IndexPage = () => {
       <div className="containerThird">
         <div className="radio">
 
+          <div className="route" style={{
+            left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
+          }} />
 
-          <PlayerWidget podcast={PODCASTS[podcastIndex - 1]} index={podcastIndex} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} />
+          <PlayerWidget podcast={PODCASTS[podcastIndex]} index={podcastIndex + 1} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} />
+
+
+
 
         </div>
         <div className="about">
