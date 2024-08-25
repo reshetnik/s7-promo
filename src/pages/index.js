@@ -49,7 +49,7 @@ const IndexPage = () => {
       <Logo className="logo" />
       <div className="containerFirst" ref={ellipseRef}>
         <div className="imageContainer">
-          <img className="image-1" src={MainImage} />
+          <img className="image-1" src='image-1.jpg' />
         </div>
         <motion.div className="ellipse" id="ellipse"
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -117,7 +117,7 @@ const IndexPage = () => {
         </div>
         <div className="about">
 
-          <img src={Ava} />
+          <img src='ava.png' />
           <div className="block">
             <div className="description">
               Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби
