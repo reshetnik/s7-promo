@@ -5,18 +5,16 @@ import './style.scss'
 
 import PlayIcon from '../assets/play-button.svg';
 import Tag from '../assets/tag.svg';
-import CurvedText1 from '../assets/cuved-text-1.svg';
-import { useEffect } from "react";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Logo from '../assets/logo.svg';
 import Vk from '../assets/vk.svg';
 import Odnoklasniki from '../assets/odnoklasniki.svg';
 import Telegram from '../assets/telegram.svg';
 import Youtube from '../assets/youtube.svg';
-import Ava from '../../static/ava.png'
+import Ava from '/static/ava.png'
 import PlayerWidget from "../components/PlayerWidget/PlayerWidget";
 import PODCASTS from "../components/PlayerWidget/podcasts";
-import MainImage from '../../static/image-1.jpg'
+import MainImage from '/static/image-1.jpg'
 
 const IndexPage = () => {
   const ellipseRef = React.useRef(null);

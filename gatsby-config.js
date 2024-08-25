@@ -6,12 +6,13 @@ module.exports = {
   siteMetadata: {
     title: `s7-promo`,
   },
-  plugins: [`gatsby-plugin-sass`, {
-    resolve: "gatsby-plugin-react-svg",
-    options: {
-      rule: {
-        include: /assets/ // See below to configure properly
+  plugins: [`gatsby-plugin-sass`, `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/ // See below to configure properly
+        }
       }
-    }
-  }],
+    }],
 }
