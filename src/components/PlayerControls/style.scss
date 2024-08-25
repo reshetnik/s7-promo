@@ -1,0 +1,14 @@
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  .control {
+    cursor: pointer;
+    fill: #074565;
+
+    &:hover {
+      fill: white;
+    }
+  }
+}
