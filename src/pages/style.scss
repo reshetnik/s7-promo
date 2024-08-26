@@ -34,17 +34,36 @@ html {
   display: flex;
   overflow: hidden;
 
+  @include lg {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
   .imageContainer {
     width: 780px;
     height: 100%;
     overflow: hidden;
     position: relative;
+
+    @include xl {
+      width: 560px;
+    }
+
+    @include lg {
+      width: 100%;
+      height: 367px;
+    }
   }
 
   .image-1 {
     height: 100%;
     min-width: 712px;
     object-fit: cover;
+
+    @include lg {
+      min-width: 120%;
+    }
   }
 
   .ellipse {
@@ -57,6 +76,14 @@ html {
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     transform-origin: 10% 30%;
+
+    @include xl {
+      left: 496px;
+    }
+
+    @include lg {
+      display: none;
+    }
   }
 
   .textContainer {
@@ -68,15 +95,46 @@ html {
     justify-content: center;
     margin-left: 100px;
 
+    @include lg {
+      margin-top: 30px;
+      margin-left: 0;
+      align-items: center;
+      padding-bottom: 60px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -92px;
+        left: -36%;
+        width: 170%;
+        height: 200%;
+        background: $purple;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+    }
+
     .tag {
       position: absolute;
       top: 0;
       right: -20px;
+      width: 115px;
+
+      @include lg {
+        top: 0px;
+        right: unset;
+        left: 240px;
+        width: 88px;
+      }
     }
 
     .subContainer {
       max-width: 400px;
       position: relative;
+
+      @include lg {
+        max-width: 304px;
+      }
     }
 
     .title {
@@ -86,6 +144,12 @@ html {
       font-weight: 900;
       line-height: 72px;
       margin-bottom: 10px;
+
+      @include lg {
+        font-size: 64px;
+        line-height: 57.6px;
+        max-width: 304px;
+      }
     }
 
     .description {
@@ -94,6 +158,13 @@ html {
       font-weight: 400;
       line-height: 24px;
       margin-bottom: 35px;
+
+      @include lg {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.2px;
+        margin-bottom: 19px;
+      }
     }
 
     .play-block {
@@ -128,6 +199,20 @@ html {
   background-size: cover;
   background-position: center center;
 
+  @include lg {
+    margin-top: 0;
+    height: 980px;
+  }
+
+  .arrows {
+    position: absolute;
+    left: 1340px;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   &:before {
     content: '';
     display: block;
@@ -136,6 +221,10 @@ html {
     width: 100%;
     height: 130px;
     background-color: $purple;
+
+    @include lg {
+      display: none;
+    }
   }
 
   .bg {
@@ -148,6 +237,17 @@ html {
     background-size: auto 790px;
     top: -30px;
 
+    @include lg {
+      background-image: none;
+      background-color: #614d98;
+      border-top-right-radius: 130px;
+      border-bottom-right-radius: 130px;
+      min-height: 378px;
+      height: auto;
+      left: -40px;
+      top: 0;
+    }
+
     &:after {
       content: '';
       display: block;
@@ -157,6 +257,24 @@ html {
       width: 2000px;
       height: 790px;
       background-color: #614d98;
+
+      @include lg {
+        display: none;
+      }
+    }
+  }
+
+  .substract-mobile {
+    display: none;
+
+    @include lg {
+      display: block;
+      background: url('../images/Subtract-mini.png') no-repeat;
+      left: 0;
+      width: 100%;
+      height: 260px;
+
+      bottom: 0;
     }
   }
 
@@ -170,6 +288,13 @@ html {
     height: 100%;
     margin-left: 104px;
 
+    @include lg {
+      margin-top: 30px;
+      margin-left: 40px;
+      align-items: center;
+      padding: 20px;
+    }
+
     .subContainer {
       max-width: 455px;
     }
@@ -180,8 +305,12 @@ html {
       font-weight: 800;
       line-height: 50px;
       text-align: left;
-
       margin-bottom: 10px;
+
+      @include lg {
+        font-size: 28px;
+        line-height: 28px;
+      }
     }
 
     .description {
@@ -190,6 +319,13 @@ html {
       font-weight: 400;
       line-height: 24px;
       margin-bottom: 35px;
+
+      @include lg {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.2px;
+        margin-top: 24px;
+      }
     }
 
     .play-block {
@@ -230,18 +366,13 @@ html {
   margin-top: -305px;
   z-index: 4;
   width: 100%;
-  padding-bottom: 115px;
 
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   top: -306px;
-  //   right: 0;
-  //   width: 306px;
-  //   height: 306px;
-  //   background: url('../../static/rectangle.svg') no-repeat;
-  // }
+  @include lg {
+    border-radius: unset;
+    border-bottom-right-radius: 130px;
+    border-top-left-radius: 53px;
+    padding-bottom: 40px;
+  }
 
   .radio {
     margin-bottom: 196px;
@@ -251,6 +382,12 @@ html {
     position: relative;
     overflow: hidden;
 
+    @include lg {
+      padding-top: 0;
+      margin-bottom: 20px;
+      height: 850px;
+    }
+
     .route {
       position: absolute;
       top: 40%;
@@ -259,6 +396,26 @@ html {
       background: url('../images/route.png') no-repeat;
       left: calc(100% / 2);
       transition: 1s;
+
+      @include lg {
+        display: none;
+      }
+    }
+
+    .route-2 {
+      @include lg {
+        display: block;
+        position: absolute;
+        width: 1917px;
+        background: url('../images/route.png') no-repeat;
+        left: calc(100% / 2);
+        transition: 1s;
+        top: unset;
+        bottom: 0;
+        height: 200px;
+        background-size: auto 200px;
+        // transform: translateX(-50%);
+      }
     }
   }
 
@@ -269,6 +426,19 @@ html {
     color: #614d98;
     padding-right: 94px;
     align-items: center;
+
+    @include lg {
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 0;
+      padding: 20px;
+
+      img {
+        width: 200px;
+      }
+    }
 
     .description {
       font-family: TT Travels Next;
@@ -301,6 +471,13 @@ html {
   justify-content: space-between;
   align-items: center;
   padding: 24px;
+
+  @include lg {
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+    height: auto;
+  }
 
   .social {
     display: flex;

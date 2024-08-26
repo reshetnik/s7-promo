@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Logo from '../assets/logo.svg';
 import Odnoklasniki from '../assets/odnoklasniki.svg';
 import Tag from '../assets/tag.svg';
+import ArrowDown from '../assets/arro-down.svg';
 import Telegram from '../assets/telegram.svg';
 import Vk from '../assets/vk.svg';
 import Youtube from '../assets/youtube.svg';
@@ -49,7 +50,7 @@ const IndexPage = () => {
       <Logo className="logo" />
       <div className="containerFirst" ref={ellipseRef}>
         <div className="imageContainer">
-          <img className="image-1" src='image-1.jpg' lazy />
+          <img className="image-1" src='image-1.jpg' lazy="true" />
         </div>
         <motion.div className="ellipse" id="ellipse"
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -81,6 +82,9 @@ const IndexPage = () => {
         </div>
       </div >
       <div className="containerSecond">
+        <div className="substract-mobile">
+
+        </div>
         <div className="bg">
           <div className="textContainer">
             <div className="subContainer">
@@ -98,19 +102,27 @@ const IndexPage = () => {
               </div>
             </div>
           </div>
+          <div className="arrows">
+            <ArrowDown />
+            <ArrowDown />
+          </div>
         </div>
+
       </div>
       <div className="containerThird" id="player">
         <div className="radio">
           <div className="route" style={{
             left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
           }} />
+          <div className="route-2" style={{
+            left: `calc((85% / 2) - ${podcastIndex * 250}px)`,
+          }} />
 
           <PlayerWidget podcast={PODCASTS[podcastIndex]} index={podcastIndex + 1} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} isEnabled={PODCASTS[podcastIndex].isEnabled} />
 
         </div>
         <div className="about">
-          <img src='ava.png' alt='Ведущий' lazy />
+          <img src='ava.png' alt='Ведущий' lazy="true" />
           <div className="block">
             <div className="description">
               Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби
@@ -126,10 +138,10 @@ const IndexPage = () => {
       </div>
       <div className="footer">
         <div className="social">
-          <Vk className="social-icon" />
-          <Odnoklasniki className="social-icon" />
-          <Youtube className="social-icon" />
-          <Telegram className="social-icon" />
+          <a target="_blank" href="https://vk.com/s7airlines" type="button"> <Vk className="social-icon" /></a>
+          <a target="_blank" href="https://ok.ru/s7airlines" type="button"><Odnoklasniki className="social-icon" /></a>
+          <a target="_blank" href="https://www.youtube.com/user/S7Group" type="button"><Youtube className="social-icon" /></a>
+          <a target="_blank" href="https://t.me/s7airlines" type="button"><Telegram className="social-icon" /></a>
         </div>
         <div className="rights">
           © {new Date().getFullYear()}. S7 Airlines — Все пpава защищены
