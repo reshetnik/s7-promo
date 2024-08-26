@@ -5,7 +5,7 @@ import Arrow from '../../assets/arrow.svg';
 
 import './style.scss';
 import PlayerControls from "../PlayerControls/PlayerControls";
-import PODCASTS from "./podcasts";
+import PODCASTS from "/static/podcasts/podcasts";
 
 const PlayerWidget = ({ podcastIndex, changeIndex }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
