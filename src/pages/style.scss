@@ -188,8 +188,17 @@ html {
   }
 }
 
+.containerPlug {
+  width: 100%;
+  height: 50px;
+  background-color: $purple;
+
+  @include lg {
+    display: none;
+  }
+}
+
 .containerSecond {
-  margin-top: 120px;
   position: relative;
   z-index: 3;
   display: block;
@@ -198,6 +207,7 @@ html {
   background: url('../images/photo_bg.png') no-repeat;
   background-size: cover;
   background-position: center center;
+  overflow: hidden;
 
   @include lg {
     margin-top: 0;
@@ -213,14 +223,13 @@ html {
     gap: 10px;
   }
 
-  &:before {
-    content: '';
-    display: block;
+  .plug {
+    height: 798px;
+    width: 2000px;
+    background: $purple;
     position: absolute;
-    top: -120px;
-    width: 100%;
-    height: 130px;
-    background-color: $purple;
+    left: 1440px;
+    top: 0;
 
     @include lg {
       display: none;
@@ -232,10 +241,10 @@ html {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: url('../images/subtract-bg-2.png') no-repeat;
+    background: url('../images/subtract-bg-3.png') no-repeat;
     background-position: 0% top;
     background-size: auto 790px;
-    top: -30px;
+    z-index: 5;
 
     @include lg {
       background-image: none;
@@ -248,15 +257,21 @@ html {
       top: 0;
     }
 
-    &:after {
-      content: '';
-      display: block;
+    .curvedText1 {
       position: absolute;
-      top: 0;
-      left: 1440px;
-      width: 2000px;
-      height: 790px;
-      background-color: #614d98;
+      bottom: 20px;
+      left: 288px;
+
+      @include lg {
+        display: none;
+      }
+    }
+
+    .curvedText2 {
+      position: absolute;
+      left: 948px;
+      top: 10px;
+      z-index: 10;
 
       @include lg {
         display: none;
@@ -273,8 +288,17 @@ html {
       left: 0;
       width: 100%;
       height: 260px;
-
       bottom: 0;
+
+      .text {
+        display: block;
+        background: url('../images/curved-text-mobile.png') no-repeat;
+        height: 100%;
+        width: 208px;
+        position: relative;
+        top: -20px;
+        left: 18px;
+      }
     }
   }
 
@@ -351,11 +375,6 @@ html {
       }
     }
   }
-
-  .curvedText1 {
-    position: absolute;
-    bottom: 0;
-  }
 }
 
 .containerThird {
@@ -366,6 +385,7 @@ html {
   margin-top: -305px;
   z-index: 4;
   width: 100%;
+  padding-bottom: 115px;
 
   @include lg {
     border-radius: unset;

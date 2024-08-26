@@ -4,40 +4,23 @@ import './fonts.scss';
 import './style.scss';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import ArrowDown from '../assets/arro-down.svg';
+import CurvedText1 from '../assets/curved-text-big-1.svg';
+import CurvedText2 from '../assets/curved-text-big-2.svg';
 import Logo from '../assets/logo.svg';
 import Odnoklasniki from '../assets/odnoklasniki.svg';
 import Tag from '../assets/tag.svg';
-import ArrowDown from '../assets/arro-down.svg';
 import Telegram from '../assets/telegram.svg';
 import Vk from '../assets/vk.svg';
 import Youtube from '../assets/youtube.svg';
 import PlayButton from "../components/PlayButton/PlayButton";
 import PlayerWidget from "../components/PlayerWidget/PlayerWidget";
-import PODCASTS from "../components/PlayerWidget/podcasts";
 
 const IndexPage = () => {
   const ellipseRef = React.useRef(null);
-  const [isPlaying, setIsPlaying] = React.useState(false);
+  const { scrollYProgress } = useScroll();
 
   const [podcastIndex, setPodcastIndex] = React.useState(0);
-
-  const handlePlay = () => {
-    setIsPlaying(!isPlaying);
-  }
-
-  const handlePrev = () => {
-    if (podcastIndex > 0) {
-      setPodcastIndex(podcastIndex - 1);
-    }
-  }
-
-  const handleNext = () => {
-    if (podcastIndex < PODCASTS.length - 1) {
-      setPodcastIndex(podcastIndex + 1);
-    }
-  }
-
-  const { scrollYProgress } = useScroll();
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 1.7]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 90]); // Rotates from 0 to 360 degrees
@@ -81,11 +64,17 @@ const IndexPage = () => {
           </div>
         </div>
       </div >
+      <div className="containerPlug">
+
+      </div>
       <div className="containerSecond">
         <div className="substract-mobile">
-
+          <div className="text">
+          </div>
         </div>
         <div className="bg">
+          <CurvedText1 className="curvedText1" />
+          <CurvedText2 className="curvedText2" />
           <div className="textContainer">
             <div className="subContainer">
               <div className="title">
@@ -107,7 +96,7 @@ const IndexPage = () => {
             <ArrowDown />
           </div>
         </div>
-
+        <div className="plug" />
       </div>
       <div className="containerThird" id="player">
         <div className="radio">
@@ -118,7 +107,7 @@ const IndexPage = () => {
             left: `calc((85% / 2) - ${podcastIndex * 250}px)`,
           }} />
 
-          <PlayerWidget podcast={PODCASTS[podcastIndex]} index={podcastIndex + 1} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} isEnabled={PODCASTS[podcastIndex].isEnabled} />
+          <PlayerWidget podcastIndex={podcastIndex} changeIndex={(idx) => setPodcastIndex(idx)} />
 
         </div>
         <div className="about">
