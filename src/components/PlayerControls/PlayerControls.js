@@ -6,12 +6,17 @@ import Play from './assets/play.svg';
 import Prev from './assets/prev.svg';
 import Next from './assets/next.svg';
 import Pause from './assets/pause.svg';
+import PlayTime from './assets/play-time.svg';
 
-const PlayerControls = ({ isPlaying, onPlay, onPause, onNext, onPrev }) => {
+
+const PlayerControls = ({ isPlaying, onPlay, onNext, onPrev, isEnabled }) => {
   return (
     <div className="player-controls">
       <Prev className='control' onClick={onPrev} />
-      {isPlaying ? <Pause className='control' onClick={onPlay} /> : <Play className='control' onClick={onPlay} />}
+
+      {!isEnabled ? <PlayTime /> :
+
+        isPlaying ? <Pause className='control' onClick={onPlay} /> : <Play className='control' onClick={onPlay} />}
       <Next className='control' onClick={onNext} />
     </div>
   )

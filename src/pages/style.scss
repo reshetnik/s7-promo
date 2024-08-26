@@ -1,6 +1,8 @@
 $purple: #614d92;
 $text-purple: #614d98;
 
+@import './breakpoints.scss';
+
 *,
 *::before,
 *::after {
@@ -52,7 +54,8 @@ html {
     background: $purple;
     top: -175px;
     left: 696px;
-    border-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
     transform-origin: 10% 30%;
   }
 
@@ -138,25 +141,22 @@ html {
   .bg {
     height: 790px;
     width: 100%;
-    // min-width: 1440px;
-    // background: rgba(0, 0, 0, 0);
     overflow: hidden;
     position: relative;
     background: url('../images/subtract-bg-2.png') no-repeat;
     background-position: 0% top;
-    background-size: 100% 790px;
+    background-size: auto 790px;
     top: -30px;
 
-    .circle {
+    &:after {
+      content: '';
+      display: block;
       position: absolute;
-      top: 0%;
-      left: 50%;
-      width: 726px; /* Задайте диаметр круга */
-      height: 840px; /* Задайте диаметр круга */
-      background: transparent;
-      border-radius: 50%; /* Создать круг */
-      box-shadow: 0 0 0 2000px $purple; /* Эффект вырезанного круга */
-      // transform: translate(-50%, -50%);
+      top: 0;
+      left: 1440px;
+      width: 2000px;
+      height: 790px;
+      background-color: #614d98;
     }
   }
 
@@ -232,16 +232,16 @@ html {
   width: 100%;
   padding-bottom: 115px;
 
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -306px;
-    right: 0;
-    width: 306px;
-    height: 306px;
-    background: url('../../static/rectangle.svg') no-repeat;
-  }
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: -306px;
+  //   right: 0;
+  //   width: 306px;
+  //   height: 306px;
+  //   background: url('../../static/rectangle.svg') no-repeat;
+  // }
 
   .radio {
     margin-bottom: 196px;

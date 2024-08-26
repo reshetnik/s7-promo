@@ -1,0 +1,22 @@
+.play-icon {
+  circle {
+    opacity: 0.2;
+  }
+
+  path,
+  rect {
+    fill: white;
+  }
+
+  &:hover {
+    circle {
+      fill: white;
+      opacity: 1;
+    }
+
+    path,
+    rect {
+      fill: #614d98;
+    }
+  }
+}

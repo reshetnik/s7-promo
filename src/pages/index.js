@@ -1,20 +1,18 @@
-import * as React from "react"
+import * as React from "react";
 
-import './fonts.scss'
-import './style.scss'
+import './fonts.scss';
+import './style.scss';
 
-import PlayIcon from '../assets/play-button.svg';
-import Tag from '../assets/tag.svg';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Logo from '../assets/logo.svg';
-import Vk from '../assets/vk.svg';
 import Odnoklasniki from '../assets/odnoklasniki.svg';
+import Tag from '../assets/tag.svg';
 import Telegram from '../assets/telegram.svg';
+import Vk from '../assets/vk.svg';
 import Youtube from '../assets/youtube.svg';
-import Ava from '/static/ava.png'
+import PlayButton from "../components/PlayButton/PlayButton";
 import PlayerWidget from "../components/PlayerWidget/PlayerWidget";
 import PODCASTS from "../components/PlayerWidget/podcasts";
-import MainImage from '/static/image-1.jpg'
 
 const IndexPage = () => {
   const ellipseRef = React.useRef(null);
@@ -38,10 +36,12 @@ const IndexPage = () => {
     }
   }
 
-  const { scrollYProgress, scrollY } = useScroll();
+  const { scrollYProgress } = useScroll();
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 1.7]);
-  const rotate = useTransform(scrollYProgress, [0, 0.3], [0, 90]); // Rotates from 0 to 360 degrees
+  const rotate = useTransform(scrollYProgress, [0, 0.5], [0, 90]); // Rotates from 0 to 360 degrees
+
+  const handleScrollToPlayer = () => document.getElementById('player')?.scrollIntoView()
 
 
   return (
@@ -49,21 +49,19 @@ const IndexPage = () => {
       <Logo className="logo" />
       <div className="containerFirst" ref={ellipseRef}>
         <div className="imageContainer">
-          <img className="image-1" src='image-1.jpg' />
+          <img className="image-1" src='image-1.jpg' lazy />
         </div>
         <motion.div className="ellipse" id="ellipse"
           transition={{ duration: 0.5, ease: "easeOut" }}
-
           style={
             {
               scale: scale,
               rotate: rotate,
             }
-          } />
+          }
+        />
 
         <div className="textContainer">
-
-
           <div className="subContainer">
             <Tag className="tag" />
 
@@ -74,7 +72,7 @@ const IndexPage = () => {
               Иммерсивное погружение в увлекательные, не туристические маршруты с оттенком личной истории
             </div>
             <div className="play-block">
-              <PlayIcon onClick={() => { console.log('click :>> '); }} className='play-icon' />
+              <PlayButton onPlay={handleScrollToPlayer} />
               <span >
                 начать Слушать подкаст скорее
               </span>
@@ -93,7 +91,7 @@ const IndexPage = () => {
                 Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби
               </div>
               <div className="play-block">
-                <PlayIcon onClick={() => { console.log('click :>> '); }} className='play-icon' />
+                <PlayButton onPlay={handleScrollToPlayer} />
                 <span>
                   послушать тизер
                 </span>
@@ -102,22 +100,17 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <div className="containerThird">
+      <div className="containerThird" id="player">
         <div className="radio">
-
           <div className="route" style={{
             left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
           }} />
 
-          <PlayerWidget podcast={PODCASTS[podcastIndex]} index={podcastIndex + 1} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} />
-
-
-
+          <PlayerWidget podcast={PODCASTS[podcastIndex]} index={podcastIndex + 1} total={PODCASTS.length} isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} isEnabled={PODCASTS[podcastIndex].isEnabled} />
 
         </div>
         <div className="about">
-
-          <img src='ava.png' />
+          <img src='ava.png' alt='Ведущий' lazy />
           <div className="block">
             <div className="description">
               Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби

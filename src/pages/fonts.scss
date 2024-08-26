@@ -1,19 +1,31 @@
 @font-face {
   font-family: Nimbus Sans Novus;
-  src: url('../../static/fonts/Nimbus/NimbusSanL-Bol.otf') format('opentype');
+  src: url('../../static/fonts/Nimbus/NimbusSanNov-Bla.otf') format('opentype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: Nimbus Sans Novus;
+  src: url('../../static/fonts/Nimbus/NimbusSanNov-Bol.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Nimbus Sans Novus;
+  src: url('../../static/fonts/Nimbus/NimbusSanNov-Med.otf') format('opentype');
   font-weight: 500;
 }
 
 @font-face {
   font-family: Nimbus Sans Novus;
-  src: url('../../static/fonts/Nimbus/NimbusSanL-Reg.otf') format('opentype');
+  src: url('../../static/fonts/Nimbus/NimbusSanNov-Reg.otf') format('opentype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: TT Travels Next;
-  src: url('../../static/fonts/Travels/TT-Travels-Next-Black.ttf')
-    format('truetype');
+  src: url('../../static/fonts/Travels/TT-Travels-Next-Black.otf')
+    format('opentype');
   font-weight: 800;
 }
 
@@ -33,8 +45,8 @@
 
 @font-face {
   font-family: TT Travels Next;
-  src: url('../../static/fonts/Travels/TT-Travels-Next-Medium.ttf')
-    format('truetype');
+  src: url('../../static/fonts/Travels/TT-Travels-Next-Medium.otf')
+    format('opentype');
   font-weight: 500;
 }
 
