@@ -14,12 +14,17 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
 
   const audio = React.useMemo(() => {
     if (typeof window !== 'undefined') {
-      return new Audio(PODCASTS[podcastIndex].link);
+      const audioLink = PODCASTS[podcastIndex].link;
+      return audioLink ? new Audio(PODCASTS[podcastIndex].link) : '';
     }
     return null;
   }, [podcastIndex]);
 
   React.useEffect(() => {
+
+    if (!audio) {
+      return;
+    }
     const handleDuration = () => {
       const duration = audio.duration;
       setDuration(secondsToHMS(duration));
@@ -30,7 +35,7 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
     return () => {
       audio.removeEventListener('loadedmetadata', handleDuration)
     }
-  }, [audio]);
+  }, [audio, setDuration]);
 
 
   const podcast = React.useMemo(() => {
@@ -48,7 +53,9 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
   }
 
   const handlePrev = () => {
-    audio.pause();
+    if (audio) {
+      audio.pause();
+    }
     setIsPlaying(false);
 
     if (podcastIndex > 0) {
@@ -57,7 +64,9 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
   }
 
   const handleNext = () => {
-    audio.pause();
+    if (audio) {
+      audio.pause();
+    }
     setIsPlaying(false);
 
     if (podcastIndex < PODCASTS.length - 1) {
