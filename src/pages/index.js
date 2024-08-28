@@ -101,7 +101,7 @@ const IndexPage = () => {
       <div className="containerThird" id="player">
         <div className="radio">
           <div className="route" style={{
-            left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
+            left: `calc((100% / 2) - ${podcastIndex * 550}px)`,
           }} />
           <div className="route-2" style={{
             left: `calc((85% / 2) - ${podcastIndex * 250}px)`,

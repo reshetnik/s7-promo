@@ -231,6 +231,25 @@ html {
     left: 1440px;
     top: 0;
 
+    &:after {
+      content: '';
+      position: absolute;
+      left: -306px;
+      bottom: -34px;
+      width: 306px;
+      height: 306px;
+      background: url('../images/rectangle.png') no-repeat;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: -34px;
+      width: 1000px;
+      height: 306px;
+      background: #f0ffb5;
+    }
+
     @include lg {
       display: none;
     }
@@ -382,7 +401,7 @@ html {
   border-top-left-radius: 306px;
   border-bottom-left-radius: 306px;
   position: relative;
-  margin-top: -305px;
+  margin-top: -268px;
   z-index: 4;
   width: 100%;
   padding-bottom: 115px;
@@ -414,6 +433,7 @@ html {
       height: 402px;
       width: 3917px;
       background: url('../images/route.png') no-repeat;
+      background-size: contain;
       left: calc(100% / 2);
       transition: 1s;
 

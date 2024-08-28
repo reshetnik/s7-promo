@@ -6,9 +6,11 @@ import Arrow from '../../assets/arrow.svg';
 import './style.scss';
 import PlayerControls from "../PlayerControls/PlayerControls";
 import PODCASTS from "/static/podcasts/podcasts";
+import secondsToHMS from './utils';
 
 const PlayerWidget = ({ podcastIndex, changeIndex }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [duration, setDuration] = React.useState(0);
 
   const audio = React.useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -16,6 +18,20 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
     }
     return null;
   }, [podcastIndex]);
+
+  React.useEffect(() => {
+    const handleDuration = () => {
+      const duration = audio.duration;
+      setDuration(secondsToHMS(duration));
+    }
+
+    audio.addEventListener('loadedmetadata', handleDuration);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleDuration)
+    }
+  }, [audio]);
+
 
   const podcast = React.useMemo(() => {
     return PODCASTS[podcastIndex]
@@ -75,6 +91,7 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
         <div className="info" style={{ backgroundColor: bgColor }}>
           <div className="time">
             {!podcast?.isEnabled && `(выйдет ${podcast?.release})`}
+            {podcast?.isEnabled && duration && `(${duration})`}
           </div>
           <div className="title">
             {podcast?.title}
