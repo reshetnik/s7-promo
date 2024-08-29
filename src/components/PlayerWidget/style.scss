@@ -1,5 +1,6 @@
 .playerContainer {
   width: 532px;
+  height: 669px;
   overflow: hidden;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 40px;
@@ -22,7 +23,7 @@
     border-top-left-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 100px;
 
     &:after {
       content: '';
@@ -89,6 +90,7 @@
     line-height: 42px;
     color: white;
     margin-top: 26px;
+    max-width: 100px;
   }
 
   .description {

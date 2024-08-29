@@ -93,13 +93,13 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
             </div>
           </div>
 
-          <PlayerControls isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} isEnabled={podcast?.isEnabled} />
+          <PlayerControls isPlaying={isPlaying} onNext={handleNext} onPrev={handlePrev} onPlay={handlePlay} isEnabled={podcast?.isEnabled} isFirst={false} />
 
 
         </div>
         <div className="info" style={{ backgroundColor: bgColor }}>
           <div className="time">
-            {!podcast?.isEnabled && `(выйдет ${podcast?.release})`}
+            {!podcast?.isEnabled && `(скоро)`}
             {podcast?.isEnabled && duration && `(${duration})`}
           </div>
           <div className="title">
@@ -111,15 +111,14 @@ const PlayerWidget = ({ podcastIndex, changeIndex }) => {
         </div>
       </div>
 
-      <div className="player-footer">
-        <div className="container">
-          <MiniPlay />
-          <span>слушать на любимой платформе</span>
-          <Arrow />
-        </div>
-
-
-      </div>
+      {podcast?.isEnabled &&
+        <div className="player-footer">
+          <div className="container">
+            <MiniPlay />
+            <span>слушать на любимой платформе</span>
+            <Arrow />
+          </div>
+        </div>}
     </div>
   )
 }

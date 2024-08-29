@@ -5,6 +5,7 @@ import './style.scss';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ArrowDown from '../assets/arro-down.svg';
+import ArrowDown2 from '../assets/arrow-2.svg';
 import CurvedText1 from '../assets/curved-text-big-1.svg';
 import CurvedText2 from '../assets/curved-text-big-2.svg';
 import Logo from '../assets/logo.svg';
@@ -33,7 +34,7 @@ const IndexPage = () => {
       <Logo className="logo" />
       <div className="containerFirst" ref={ellipseRef}>
         <div className="imageContainer">
-          <img className="image-1" src='image-1.jpg' lazy="true" />
+          <img className="image-1" src='/image-bg.jpg' lazy="true" />
         </div>
         <motion.div className="ellipse" id="ellipse"
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -53,12 +54,12 @@ const IndexPage = () => {
               Место по душе
             </div>
             <div className="description">
-              Иммерсивное погружение в увлекательные, не туристические маршруты с оттенком личной истории
+              Исследуем, чем живут города России, вместе с теми, кто там живет
             </div>
             <div className="play-block">
               <PlayButton onPlay={handleScrollToPlayer} />
               <span >
-                начать Слушать подкаст скорее
+                Слушать подкаст
               </span>
             </div>
           </div>
@@ -78,22 +79,23 @@ const IndexPage = () => {
           <div className="textContainer">
             <div className="subContainer">
               <div className="title">
-                Открываем не только мир, но и себя
+                Найти ключ
+                к городу
               </div>
               <div className="description">
-                Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби
+                Восемь городов России — восемь человек, для которых их город стал местом силы и главным вдохновением. Отправимся в путешествие и увидим города и то, что рядом, глазами этих людей — чтобы далекие места стали ближе и роднее
               </div>
               <div className="play-block">
                 <PlayButton onPlay={handleScrollToPlayer} />
                 <span>
-                  послушать тизер
+                  Погрузиться в атмосферу
                 </span>
               </div>
             </div>
           </div>
           <div className="arrows">
-            <ArrowDown />
-            <ArrowDown />
+            <ArrowDown2 />
+            <ArrowDown2 />
           </div>
         </div>
         <div className="plug" />
@@ -101,7 +103,7 @@ const IndexPage = () => {
       <div className="containerThird" id="player">
         <div className="radio">
           <div className="route" style={{
-            left: `calc((100% / 2) - ${podcastIndex * 550}px)`,
+            left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
           }} />
           <div className="route-2" style={{
             left: `calc((85% / 2) - ${podcastIndex * 250}px)`,
@@ -114,13 +116,14 @@ const IndexPage = () => {
           <img src='ava.png' alt='Ведущий' lazy="true" />
           <div className="block">
             <div className="description">
-              Вместе с жителем города мы отправимся в путешествие по городу с  неожиданной стороны и  увидим мир глазами не путешественника или эксперта, а человека, который исследует и видит город через свое хобби
+              Ключи от города хранятся у тех, кто там живет. Мы отыскали своих людей в восьми российских городах и пообщались с ними. Разведали для вас самые удивительные местечки. И просто очень вдохновились! Потому что люди — это то, что определяет любое место.
+
             </div>
             <div className="name">
-              федор елютин
+              Женя Гут
             </div>
             <div className="name-description">
-              создатель аудио-спектакля Impressario и ведущий нашего подкаста
+              журналист, блогер и ведущая нашего подкаста
             </div>
           </div>
         </div>
@@ -142,4 +145,15 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>s7 podcast</title>
+export const Head = () => <>
+  <title>Место по душе</title>
+  <meta name="description" content="Подкаст S7 Airlines и студии «Толк» — исследуем, чем живут люди и их города" />
+  <meta property="og:title" content="Место по душе" />
+  <meta property="og:description" content="Подкаст S7 Airlines и студии «Толк» — исследуем, чем живут люди и их города" />
+  <meta property="og:image" content="/og/OG-image-1.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta property="og:image" content="/og/OG-image-2.png" />
+  <meta property="og:image:width" content="1000" />
+  <meta property="og:image:height" content="480" />
+</>
