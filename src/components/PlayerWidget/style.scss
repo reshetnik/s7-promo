@@ -1,3 +1,5 @@
+@import '../../pages/breakpoints.scss';
+
 .playerContainer {
   width: 532px;
   height: 669px;
@@ -5,6 +7,11 @@
   border-top-left-radius: 50px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
+
+  @include lg {
+    width: 100%;
+    max-width: 532px;
+  }
 
   .player-main {
     overflow: hidden;
@@ -23,7 +30,6 @@
     border-top-left-radius: 30px;
     display: flex;
     align-items: center;
-    padding-left: 100px;
 
     &:after {
       content: '';
@@ -35,6 +41,12 @@
       height: 500px;
       background-color: inherit;
       border-radius: 50%;
+
+      @include lg {
+        left: 50%;
+        width: 250%;
+        transform: translateX(-50%);
+      }
     }
   }
 
@@ -118,6 +130,15 @@
     .container {
       display: flex;
       gap: 20px;
+    }
+
+    @include lg {
+      justify-content: center;
+      padding-left: 0;
+
+      .container {
+        gap: 10px;
+      }
     }
 
     span {

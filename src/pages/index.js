@@ -106,7 +106,7 @@ const IndexPage = () => {
             left: `calc((100% / 2) - ${podcastIndex * 600}px)`,
           }} />
           <div className="route-2" style={{
-            left: `calc((85% / 2) - ${podcastIndex * 250}px)`,
+            left: `calc((100% / 2) - ${podcastIndex * 250}px)`,
           }} />
 
           <PlayerWidget podcastIndex={podcastIndex} changeIndex={(idx) => setPodcastIndex(idx)} />
